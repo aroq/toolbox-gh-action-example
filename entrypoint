@@ -33,8 +33,7 @@ parameters:
 tasks:
   core:
     import: github.com/aroq/toolbox?ref=v2.1//variant-lib/utils.yaml
-  project:
-    import: 
+
 steps:
 - task: core.exec
   arguments:
