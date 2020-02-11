@@ -7,13 +7,60 @@ parameters:
 - name: INPUT_WHO_TO_GREET
   default: default
 
+# - name: HOME
+# - name: GITHUB_REF
+# - name: GITHUB_SHA
+# - name: GITHUB_REPOSITORY
+# - name: GITHUB_RUN_ID
+# - name: GITHUB_RUN_NUMBER
+# - name: GITHUB_ACTOR
+# - name: GITHUB_WORKFLOW
+# - name: GITHUB_HEAD_REF
+# - name: GITHUB_BASE_REF
+# - name: GITHUB_EVENT_NAME
+# - name: GITHUB_WORKSPACE
+# - name: GITHUB_ACTION
+# - name: GITHUB_EVENT_PATH
+# - name: RUNNER_OS
+# - name: RUNNER_TOOL_CACHE
+# - name: RUNNER_TEMP
+# - name: RUNNER_WORKSPACE
+# - name: ACTIONS_RUNTIME_URL
+# - name: ACTIONS_RUNTIME_TOKEN
+# - name: ACTIONS_CACHE_URL
+# - name: GITHUB_ACTIONS
+
+tasks:
+  core:
+    import: github.com/aroq/toolbox?ref=v2.1//variant-lib/utils.yaml
+
 steps:
-- script: |
-    set -x
-    echo "Hello {{ .INPUT_WHO_TO_GREET }}"
+- task: core.exec
+  arguments:
+    cmd: |
+      echo "Hello {{ .INPUT_WHO_TO_GREET }}"
 
-    ls -al /github/home
-    ls -al /home/runner
-    ls -al /github/workflow
-    ls -al /github/workspace
+- task: core.exec
+  arguments:
+    cmd: |
+      pwd; ls -al
 
+- task: core.exec
+  arguments:
+    cmd: |
+      ls -al /github/home
+
+- task: core.exec
+  arguments:
+    cmd: |
+      ls -al /github/workflow
+
+- task: core.exec
+  arguments:
+    cmd: |
+      ls -al /github/workspace
+
+- task: core.exec
+  arguments:
+    cmd: |
+      env
