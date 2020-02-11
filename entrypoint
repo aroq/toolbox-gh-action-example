@@ -4,10 +4,10 @@
 bindParamsFromEnv: true
 
 parameters:
-- name: INPUT_WHO-TO-GREET
+- name: INPUT_WHO_TO_GREET
   default: default
 
 steps:
 - script: |
-    echo "Hello {{ .INPUT_WHO-TO-GREET }}"
+    echo "Hello {{ .INPUT_WHO_TO_GREET }}"
 
