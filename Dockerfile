@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM aroq/toolbox:v2.1
+FROM aroq/toolbox-cloud:0.1.4
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint /entrypoint
