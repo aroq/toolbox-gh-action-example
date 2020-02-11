@@ -1,0 +1,13 @@
+#!/usr/bin/env variant
+# vi: ft=yaml
+
+bindParamsFromEnv: true
+
+parameters:
+- name: INPUT_WHO-TO-GREET
+  default: default
+
+steps:
+- script: |
+    echo "Hello {{ .INPUT_WHO-TO-GREET }}"
+
