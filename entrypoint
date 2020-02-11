@@ -69,4 +69,4 @@ steps:
 - task: core.exec
   arguments:
     cmd: |
-      toolbox/tools/k8s/apply
+      toolbox/bin/k8s/apply
