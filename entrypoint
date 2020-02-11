@@ -9,5 +9,11 @@ parameters:
 
 steps:
 - script: |
+    set -x
     echo "Hello {{ .INPUT_WHO_TO_GREET }}"
+
+    ls -al /github/home
+    ls -al /home/runner
+    ls -al /github/workflow
+    ls -al /github/workspace
 
