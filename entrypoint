@@ -33,7 +33,8 @@ parameters:
 tasks:
   core:
     import: github.com/aroq/toolbox?ref=v2.1//variant-lib/utils.yaml
-
+  project:
+    import: 
 steps:
 - task: core.exec
   arguments:
@@ -54,6 +55,7 @@ steps:
   arguments:
     cmd: |
       ls -al /github/workflow
+      cat /github/workflow/event.json
 
 - task: core.exec
   arguments:
@@ -64,3 +66,8 @@ steps:
   arguments:
     cmd: |
       env
+
+- task: core.exec
+  arguments:
+    cmd: |
+      toolbox/tools/k8s/apply
